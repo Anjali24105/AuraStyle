@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AuraStyle | Multimodal E-Commerce & Trend Matcher</title>
+    
+    <!-- Premium Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Iconography -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Premium Custom Stylesheet -->
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <!-- Background Ambient Glow -->
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+
+    <!-- Header Navigation -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-accent">Aura</span>Style
+            </a>
+            <div class="nav-links">
+                <a href="#" class="nav-item active">Catalog</a>
+                <a href="#" class="nav-item" id="adminReindexBtn"><i class="fa-solid fa-arrows-rotate"></i> Reindex DB</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="main-content">
+        <!-- Hero Search Section -->
+        <section class="search-hero">
+            <h1 class="hero-title">Discover Your Next Trend</h1>
+            <p class="hero-subtitle">Search seamlessly using natural language, voice inputs, or photo uploads.</p>
+            
+            <div class="glass-panel search-panel">
+                <!-- Search Inputs Container -->
+                <div class="search-controls-wrapper">
+                    <!-- Text Search & Mic -->
+                    <div class="text-search-container">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="searchInput" placeholder="Describe the style, color, or vibe you're looking for..." autocomplete="off">
+                        <button class="voice-btn" id="voiceSearchBtn" title="Search with Voice">
+                            <i class="fa-solid fa-microphone"></i>
+                        </button>
+                    </div>
+
+                    <!-- Drag and Drop Image Search -->
+                    <div class="image-upload-container" id="dropZone">
+                        <input type="file" id="imageInput" accept="image/*" style="display: none;">
+                        <div class="dropzone-prompt" id="dropZonePrompt">
+                            <i class="fa-solid fa-cloud-arrow-up upload-icon"></i>
+                            <span>Drag and drop an outfit image, or <label for="imageInput" class="browse-label">browse</label></span>
+                        </div>
+                        <div class="image-preview-container" id="previewContainer" style="display: none;">
+                            <img src="" alt="Search Preview" id="imagePreview">
+                            <button class="clear-img-btn" id="clearImageBtn" title="Remove Image">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combined Search Weights Controls -->
+                <div class="weight-controls-panel" id="weightControlsPanel" style="display: none;">
+                    <div class="weight-title-bar">
+                        <span><i class="fa-solid fa-sliders"></i> Multimodal Influence Balance</span>
+                        <span id="weightValText" class="weight-ratio">50% Text / 50% Image</span>
+                    </div>
+                    <div class="slider-wrapper">
+                        <span><i class="fa-solid fa-font"></i> Text</span>
+                        <input type="range" id="searchWeightSlider" min="0" max="100" value="50" class="premium-slider">
+                        <span><i class="fa-solid fa-image"></i> Image</span>
+                    </div>
+                </div>
+
+                <!-- Search Action Trigger -->
+                <div class="search-actions">
+                    <button class="btn btn-primary" id="searchSubmitBtn">
+                        <span class="btn-text">Match My Trend</span>
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </button>
+                    <button class="btn btn-secondary" id="resetSearchBtn" style="display: none;">
+                        Reset
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Grid Header -->
+        <section class="catalog-section">
+            <div class="catalog-header">
+                <h2 id="catalogTitle" class="catalog-title">Latest Styles</h2>
+                <div id="resultsMetaText" class="results-meta"></div>
+            </div>
+
+            <!-- Loader Ring -->
+            <div class="loader-container" id="loaderContainer" style="display: none;">
+                <div class="loader-ring"></div>
+                <p class="loader-text">Matching features against neural database...</p>
+            </div>
+
+            <!-- Responsive Product Masonry Grid -->
+            <div class="product-grid" id="productGrid">
+                <!-- Javascript will populate product cards here -->
+            </div>
+            
+            <!-- Empty State -->
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <i class="fa-solid fa-shirt empty-icon"></i>
+                <h3>No Outfits Found</h3>
+                <p>We couldn't find matching styles for your search. Try adjusting the query text or uploading a different image.</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Administrative Toast notification -->
+    <div id="toast" class="toast-notification"></div>
+
+    <!-- Script Entrypoint -->
+    <script src="/static/js/app.js"></script>
+</body>
+</html>
