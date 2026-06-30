@@ -1,4 +1,4 @@
-# 👗 AuraStyle – Multimodal E-Commerce Fashion & Text-to-Image Trend Matcher
+# 👗 AuraStyle : Multimodal E-Commerce Fashion & Text-to-Image Trend Matcher
 
 AuraStyle is an AI-powered fashion search application that enables users to discover fashion products using natural language descriptions, uploaded images, or both simultaneously. The project leverages OpenAI's CLIP model to understand the semantic relationship between text and images, providing intelligent and visually relevant product recommendations.
 
